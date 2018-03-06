@@ -54,11 +54,11 @@ public class LiquidParticle : MonoBehaviour
                 ScaleDown();
                 break;
             case LiquidStates.Lava:
-                MovementAnimation();
-                ScaleDown();
+               // MovementAnimation();
+               // ScaleDown();
                 break;
             case LiquidStates.Gas:
-                MovementAnimation();
+                //MovementAnimation();
                 //ScaleDown();
                 break;
             default:
@@ -160,7 +160,6 @@ public class LiquidParticle : MonoBehaviour
             if ((int)currentState + (int)scr.currentState == 1)
             {
                 GameObject gas = Instantiate<GameObject>(gameObject, transform.position, transform.rotation);
-                gas.AddComponent<LiquidParticle>();
                 gas.GetComponent<LiquidParticle>().SetState(LiquidStates.Gas);
                 Destroy(gameObject);
                 Destroy(a_otherParticle.gameObject);
