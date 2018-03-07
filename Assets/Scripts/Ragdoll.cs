@@ -7,7 +7,7 @@ public class Ragdoll : MonoBehaviour {
 
     private Animator animator = null;
     // public List<Rigidbody> rigidbodies = new List<Rigidbody>();
-    private List<Rigidbody> rigidbodies;
+    public List<Rigidbody> rigidbodies;
     public bool RagdollOn
     {
         get { return !animator.enabled; }

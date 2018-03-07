@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
     public Vector3 velocity = new Vector3(0, 0, 0);
     public bool isGrounded = false;
     public bool crouched = false;
+    public bool jumping = false;
     float height;
     Vector3 controlCenter;
     // Use this for initialization
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             velocity.y = 5;
+            jumping = true;
         }
         if (!isGrounded)
         {
@@ -60,15 +62,17 @@ public class Player : MonoBehaviour {
         }
         else
         {
-         //   velocity = Vector3.zero;
+            //   velocity = Vector3.zero;
+            
         }
 
         if (isGrounded && velocity.y <= 0)
         {
             velocity.y = 0;
             velocity = Vector3.zero;
+            jumping = false;
         }
-        if (!isGrounded)
+        if (!jumping)
         {
             //controller.height = height * 0.5f;
             //controller.center = controlCenter + Vector3.up * 0.5f;
@@ -88,8 +92,9 @@ public class Player : MonoBehaviour {
         //animator.SetFloat("Speed", vertical * speed * Time.deltaTime);
         animator.SetFloat("Forward", vertical);
         animator.SetFloat("Turn", horizontal);
-        animator.SetBool("OnGround", isGrounded);
+        animator.SetBool("OnGround", !jumping);
         animator.SetBool("Crouch", crouched);
+        animator.SetFloat("Jump", velocity.y);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
