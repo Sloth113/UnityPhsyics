@@ -54,8 +54,8 @@ public class Player : MonoBehaviour {
         {
             crouched = false;
         }
-        
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        //Check space, grounded and space above head
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !Physics.Raycast(controller.transform.position + Vector3.up * (controller.height), Vector3.up, 0.8f))
         {
             velocity.y = 5;
             jumping = true;
