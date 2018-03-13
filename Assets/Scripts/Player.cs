@@ -31,17 +31,22 @@ public class Player : MonoBehaviour {
         float horizontal = Input.GetAxis("Horizontal");
 
         //Make 5 check
-        isGrounded = Physics.Raycast(transform.position + transform.up * 0.2f, -Vector3.up, 0.3f);
-        isGrounded = isGrounded || Physics.Raycast(transform.position + transform.forward * controller.radius + transform.up * 0.2f, -Vector3.up, 0.3f);
-        isGrounded = isGrounded || Physics.Raycast(transform.position + -transform.forward * controller.radius + transform.up * 0.2f, -Vector3.up, 0.3f);
-        isGrounded = isGrounded || Physics.Raycast(transform.position + -transform.right * controller.radius + transform.up * 0.2f, -Vector3.up, 0.3f);
-        isGrounded = isGrounded || Physics.Raycast(transform.position + -transform.right * controller.radius + transform.up * 0.2f, -Vector3.up, 0.3f);
+        float disCheck = 0.25f;
+        isGrounded = Physics.Raycast(transform.position + transform.up * 0.2f, -Vector3.up, disCheck);
+        isGrounded = isGrounded || Physics.Raycast(transform.position + transform.forward * controller.radius + transform.up * 0.2f, -Vector3.up, disCheck);
+        isGrounded = isGrounded || Physics.Raycast(transform.position + -transform.forward * controller.radius + transform.up * 0.2f, -Vector3.up, disCheck);
+        isGrounded = isGrounded || Physics.Raycast(transform.position + -transform.right * controller.radius + transform.up * 0.2f, -Vector3.up, disCheck);
+        isGrounded = isGrounded || Physics.Raycast(transform.position + -transform.right * controller.radius + transform.up * 0.2f, -Vector3.up, disCheck);
 
-
-
+        Debug.Log(Physics.Raycast(controller.transform.position + Vector3.up * (controller.height), Vector3.up, height - controller.height));
+        Debug.Log(controller.height / 2);
         velocity += Physics.gravity * Time.deltaTime;
 
         if(Input.GetKey(KeyCode.LeftControl) && isGrounded)
+        {
+            crouched = true;
+        }
+        else if (Physics.Raycast(controller.transform.position + Vector3.up * (controller.height), Vector3.up, height - controller.height + 0.1f))
         {
             crouched = true;
         }
@@ -72,7 +77,8 @@ public class Player : MonoBehaviour {
             velocity = Vector3.zero;
             jumping = false;
         }
-        if (!jumping)
+
+        if (jumping)
         {
             //controller.height = height * 0.5f;
             //controller.center = controlCenter + Vector3.up * 0.5f;
@@ -84,6 +90,7 @@ public class Player : MonoBehaviour {
         }
         else
         {
+            //Grounded
             controller.height = height;
             controller.center = controlCenter;
         }
