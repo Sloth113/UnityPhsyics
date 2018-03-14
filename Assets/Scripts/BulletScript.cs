@@ -12,7 +12,7 @@ public class BulletScript : MonoBehaviour {
 	void Start () {
         //Rigid body move forward
         m_rigidbody = GetComponent<Rigidbody>();
-        m_rigidbody.AddForce(transform.forward * m_speed);
+        m_rigidbody.AddForce(transform.forward * m_speed * m_rigidbody.mass);
 	}
 	
 	// Update is called once per frame
@@ -27,9 +27,12 @@ public class BulletScript : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         //Add force of the collider it hits
-        Rigidbody body = collision.gameObject.GetComponent<Rigidbody>();
-        if (body != null)
-            body.AddForce(transform.forward * m_speed);
+        if (collision.gameObject.GetComponent<Ragdoll>())
+        {
+            Rigidbody body = collision.gameObject.GetComponent<Rigidbody>();
+            if (body != null)
+                body.AddForce(m_rigidbody.velocity * m_rigidbody.mass);
+        }
     }
     
 }

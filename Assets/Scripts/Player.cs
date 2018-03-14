@@ -38,8 +38,8 @@ public class Player : MonoBehaviour {
         isGrounded = isGrounded || Physics.Raycast(transform.position + -transform.right * controller.radius + transform.up * 0.2f, -Vector3.up, disCheck);
         isGrounded = isGrounded || Physics.Raycast(transform.position + -transform.right * controller.radius + transform.up * 0.2f, -Vector3.up, disCheck);
 
-        Debug.Log(Physics.Raycast(controller.transform.position + Vector3.up * (controller.height), Vector3.up, height - controller.height));
-        Debug.Log(controller.height / 2);
+       //Debug.Log(Physics.Raycast(controller.transform.position + Vector3.up * (controller.height), Vector3.up, height - controller.height));
+       //Debug.Log(controller.height / 2);
         velocity += Physics.gravity * Time.deltaTime;
 
         if(Input.GetKey(KeyCode.LeftControl) && isGrounded)

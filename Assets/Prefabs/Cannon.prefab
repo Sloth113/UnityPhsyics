@@ -127,7 +127,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1909349836806132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.352938, y: 1.746454, z: -5.1613235}
+  m_LocalPosition: {x: -13.33, y: 0.73, z: -8.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4453775917991632}
@@ -141,7 +141,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1508429140916554}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0010004044, y: 0.98765874, z: 0.0029997826}
   m_LocalScale: {x: 1.3027246, y: 0.3755356, z: 1.2327323}
   m_Children:
@@ -302,3 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_base: {fileID: 1242559272754346}
   m_barrel: {fileID: 1508429140916554}
+  m_cannonBall: {fileID: 1811551513358974, guid: d4ee1ff39aef0654bb1285ddb75070b0,
+    type: 2}
+  m_exit: {fileID: 4212931867026534}
+  m_shotTime: 1
