@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 95057833123119650}
   - component: {fileID: 143936254203932778}
   - component: {fileID: 114381076544593240}
+  - component: {fileID: 136047352309119272}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1231,15 +1232,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1109663195039748}
-  m_LocalRotation: {x: -0, y: 0.9817029, z: -0, w: 0.190419}
-  m_LocalPosition: {x: 0.42, y: 0.53, z: -0.32}
+  m_LocalRotation: {x: -0, y: 0.0047365827, z: -0, w: 0.9999888}
+  m_LocalPosition: {x: 0.7211196, y: 0.5652005, z: -1.386003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4500942571889112}
   - {fileID: 4088417690963658}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 158.046, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.54300004, z: 0}
 --- !u!4 &4088417690963658
 Transform:
   m_ObjectHideFlags: 1
@@ -2130,6 +2131,19 @@ MonoBehaviour:
   isGrounded: 0
   crouched: 0
   jumping: 0
+--- !u!136 &136047352309119272
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1109663195039748}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!137 &137432257359331092
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2402,7 +2416,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1.8
   m_Radius: 0.29
-  m_SlopeLimit: 0
+  m_SlopeLimit: 40
   m_StepOffset: 0.1
   m_SkinWidth: 0.01
   m_MinMoveDistance: 0.001
